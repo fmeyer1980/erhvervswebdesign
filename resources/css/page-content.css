@@ -1,0 +1,124 @@
+.page-content{
+  @apply leading-relaxed
+}
+
+
+.page-content > p strong, .page-content > .large-text{
+  @apply max-w-[45ch];
+}
+
+.page-content > blockquote {
+  @apply border-l-8 border-primary-shade bg-light-glare text-primary-shade p-[2em] text-[1.2em] font-bold italic my-[2em];
+}
+
+.page-content > p > small{
+  font-size: .8em;
+}
+
+
+.page-content > ol:not([class]),
+.page-content > ul:not([class]) {
+  @apply pl-700 list-disc;
+}
+
+.page-content > ol,
+.page-content > ul {
+  @apply mx-[em];
+}
+
+.page-content li + li {
+  @apply mt-[1em]
+}
+
+.page-content > hr{
+  @apply w-full h-px border-0 my-900 bg-current opacity-10;
+}
+
+.page-content > a, .page-content > p a, .page-content > figure a{
+  @apply text-primary-shade font-bold underline;
+}
+
+.page-content > h1{
+  @apply text-800;
+  max-width: 25ch;
+}
+
+.page-content > h2{
+  @apply text-600;
+  max-width: 35ch;
+}
+
+.page-content > h3{
+  @apply text-400;
+  max-width: 45ch;
+}
+
+.page-content > h4{
+  @apply text-300;
+  max-width: 55ch;
+}
+
+.page-content > .title + h1,
+.page-content > .title + h2,
+.page-content > .title + h3,
+.page-content > .title + h4{
+  --flow-space: .6em;
+}
+
+.page-content > h2 + .text-large {
+  --flow-space: 1.2em;
+}
+
+.page-content > hr + h1,
+.page-content > hr + h2,
+.page-content > hr + h3,
+.page-content > hr + h4{
+  --flow-space: 0px;
+}
+
+
+.page-content > h1,
+.page-content > h2,
+.page-content > h3 {
+  --flow-space: 1.7em;
+}
+
+.page-content > h1 + *,
+.page-content > h2 + *,
+.page-content > h3 + *,
+.page-content > h4 + * {
+  --flow-space: 1.8em;
+}
+
+.page-content > h1 + .xl-text,
+.page-content > h2 + .xl-text,
+.page-content > h3 + .xl-text,
+.page-content > h4 + .xl-text {
+  --flow-space: 2.2em;
+}
+
+.page-content > img{
+  @apply my-700 rounded-[3px];
+}
+
+.page-content > p > img{
+  @apply my-700 rounded-[3px];
+}
+
+.page-content > table{
+  @apply bg-light-glare w-full rounded-lg overflow-hidden;
+}
+
+.page-content > table td{
+  @apply border border-dark/10 text-sm p-[.5em]
+}
+
+
+.page-content th{
+  @apply bg-primary-glare p-2 text-light-glare
+  
+}
+
+.page-content th{
+  @apply border-l border-light/10 
+}

@@ -1,0 +1,29 @@
+<nav class="mobil-menu w-full mx-gutter" x-data="{selected:null}">
+    <ul class="font-secondary font-bold text-700 divide-y divide-light-glare/10">
+        {{ nav:collection:pages }}
+            {{ if hide_from_main_nav == null || false }}
+                <li class="relative py-100">
+                    {{ if children }}
+                        <div class="relative flex flex-wrap items-center w-full">
+                            <a class="{{ is_current || is_parent ?= 'text-primary-glare opacity-100' }}" href="{{ url }}">{{ title }}</a>
+                            {{ if children }}{{ svg src="icons/arrow-right" class="h-[.7em] translate-y-[.08em] ml-auto cursor-pointer rotate-90" @click="selected !== {{ count }} ? selected = {{ count }} : selected = null" }}{{ /if }}
+                        </div>
+                        <ul 
+                        class="max-h-0 overflow-hidden space-y-200"
+                        x-cloak
+                        x-ref="container{{ count }}"
+                        x-bind:style="selected == {{ count }} ? 'max-height: 100%; padding-block: .5em;' : ''">
+                            {{ children }}
+                            <li class="text-[.6em]">
+                                <a class="border-b border-transparent font-normal {{ is_current ?= 'text-primary !border-primary' }}" href="{{ url }}">{{ title }}</a>
+                            </li>
+                            {{ /children }}
+                        </ul>
+                    {{ else }}
+                        <a class="{{ is_current || is_parent ?= 'text-primary-glare opacity-100' }}" href="{{ url }}">{{ title }}</a>
+                    {{ /if }}
+                </li>
+            {{ /if }}
+        {{ /nav:collection:pages }}
+    </ul>
+</nav>

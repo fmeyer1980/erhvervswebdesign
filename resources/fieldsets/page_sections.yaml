@@ -1,0 +1,56 @@
+title: 'Page sections'
+fields:
+  -
+    handle: page_sections
+    field:
+      collapse: accordion
+      type: replicator
+      display: 'Page sections'
+      fullscreen: false
+      sets:
+        sections:
+          display: Sections
+          icon: layout-flip-up
+          sets:
+            entries_boxes:
+              display: 'Entries boxes'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: entrie_boxes
+            image_textbox:
+              display: 'Image textbox'
+              icon: layout-flip-right
+              fields:
+                -
+                  import: image_textbox
+            featured_entries:
+              display: 'Featured entries'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: featured_entries
+            featured_cases:
+              display: 'Featured cases'
+              icon: dashboard-layout-2
+              fields:
+                -
+                  import: featured_cases
+            video:
+              display: Video
+              icon: media-webcam-video
+              fields:
+                -
+                  import: video
+            image:
+              display: Image
+              icon: media-image-picture-gallery
+              fields:
+                -
+                  import: video
+            testimonials:
+              display: Testimonials
+              icon: user-avatar
+              fields:
+                -
+                  import: testimonials

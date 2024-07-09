@@ -1,0 +1,35 @@
+<section class="featured_cases relative bg-dark text-light-glare py-lg text-center">
+    {{ partial:components/image imagePath="/assets/bluebackground_original_01_0.webp" class="absolute inset-0 mix-blend-overlay opacity-30 object-cover w-full h-full" }}
+    <div class="container-wrapper">
+        {{ partial:components/section_heading class="md:items-center" }}
+        <div>
+            {{ links }}
+                {{ partial:components/btn }}
+            {{ /links }}
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-3 items-start justify-start gap-gutter mt-900">
+            <div class="featured_cases__list">
+                <div class="space-y-gutter animate-move-up">
+                    {{ cases_left }}
+                        {{ partial:components/image h="auto" :imagePath="featured_image" class="rounded-lg border border-light-glare/30 ring-1 ring-black shadow-custom_small" }}
+                    {{ /cases_left }}
+                </div>
+            </div>
+            <div class="featured_cases__list">
+                <div class="space-y-gutter animate-move-down">
+                    {{ cases_center }}
+                        {{ partial:components/image h="auto" :imagePath="featured_image" class="rounded-lg border border-light-glare/30 ring-1 ring-black shadow-custom_small" }}
+                    {{ /cases_center }}
+                </div>
+            </div>
+            <div class="featured_cases__list hidden lg:block">
+                <div class="space-y-gutter animate-move-up-slow ">
+                    {{ cases_right }}
+                        {{ partial:components/image h="auto" :imagePath="featured_image" class="rounded-lg border border-light-glare/30 ring-1 ring-black shadow-custom_small" }}
+                    {{ /cases_right }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

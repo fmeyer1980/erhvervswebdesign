@@ -1,0 +1,11 @@
+<section class="relative w-full bg-dark text-light-glare clip-path-intro" aria-labelledby="{{ intro_text | raw | bard_items | where:type:heading | first | bard_text }}">
+    <div class="relative container-wrapper z-10 flex flex-col flow-y flow-space-lg min-h-[clamp(25rem,calc(25vw+25vh),60rem)] pt-[calc(var(--size-xl)+var(--header-bottom-height))] pb-xl">
+        <div class="prose-h1:max-w-[22ch] md:prose-h1:text-850 prose-p:text-350 prose-p:max-w-[65ch] prose-p:opacity-80 flow-y flow-space-600 fade-out-left">
+            {{ intro_text }}
+        </div>
+        {{ partial:components/price_calculator class="fade-out-right" }}
+    </div>
+    <div class="absolute inset-0 after:absolute after:inset-0 after:bg-gradient-to-r after:from-dark/80 after:via-dark/70 after:via-40% after:to-dark/0 after:to-80%">
+        {{ partial:components/picture loading="eager" ratio="11" :imagePath="intro_image" class="w-full h-full object-cover"}}
+    </div>
+</section>

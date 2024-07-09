@@ -1,0 +1,22 @@
+.banner__content{
+    @apply 
+    container-wrapper 
+    relative 
+    z-10 
+    py-xl 
+    min-h-[clamp(25rem,calc(25vw+25vh),60rem)] 
+    flex 
+    flex-col 
+    text-light-glare
+    prose-h1:max-w-[20ch]
+    prose-h1:text-pretty
+    flow-y
+    prose-p:text-350
+    prose-p:text-light-glare/90
+    prose-p:max-w-[60ch]
+    prose-p:text-balance;
+}
+
+.banner__image{
+
+}

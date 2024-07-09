@@ -1,0 +1,50 @@
+<header class="font-heading relative z-[90]" x-data="{ menuIsOpen: false }">
+    <div class="container-wrapper bg-light-glare h-[--header-top-height]">
+        {{ partial:components/socialmedia }}
+    </div>
+    <div class="container-wrapper bg-transparent text-light-glare absolute w-full">
+        <div class="flex justify-between items-center h-[--header-bottom-height] relative before:absolute before:-bottom-px before:w-full before:h-px before:bg-white/10 after:absolute after:bottom-0 after:w-full after:h-px after:bg-black/70">
+            <a class="h-[60%] mr-auto" href="/" aria-label="Gå til {{ site_settings:site_name }}">
+                {{ svg src="logo" class="h-full w-auto" }}
+            </a>
+            <nav class="hidden md:block relative" role="Desktop main navigation">
+                <menu class="flex items-center gap-700 font-semibold">
+                    {{ nav:collection:pages }}
+                        {{ if hide_from_main_nav == null || false }}
+                            <li class="relative">
+                                <a class="flex items-center justify-center space-x-[.5em] py-100 {{ is_current || is_parent ?= 'underline underline-offset-8 decoration-2' }}" href="{{ url }}"><span>{{ title }}</span>{{ if children }}{{ svg src="angle-down-solid" class="h-[.8em]" }}{{ /if }}</a>
+                                {{ if children }}
+                                    <ul class="hidden absolute font-normal text-100 flex-col left-1/2 -translate-x-1/2 bg-light shadow-xl text-dark min-w-[15rem] py-300 px-gutter rounded-[3px] z-50">
+                                        {{ children }}
+                                        <li class="py-[.7em] border-b border-dark-shade/10 last:border-0">
+                                            <a class="border-b border-transparent" href="{{ url }}">{{ title }}</a>
+                                        </li>
+                                        {{ /children }}
+                                    </ul>
+                                {{ /if }}
+                            </li>
+                        {{ /if }}
+                    {{ /nav:collection:pages }}
+                </menu>
+            </nav>
+            <button aria-label="Primære navigation knap" type="button" class="site-head__dropdown-nav shrink-0 md:hidden relative z-[99]" :class="menuIsOpen ? 'is-open' : ''" @click="menuIsOpen = !menuIsOpen" @keydown.escape="isOpen = false"></button>
+        </div>
+
+
+
+        
+        <div class="fixed inset-0 bg-light z-[80] flex justify-center pt-800" 
+            x-cloak 
+            x-show="menuIsOpen"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="opacity-0 -translate-y-400"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-400"
+        >
+            {{ partial:main_nav_mobil }}
+        </div>
+    </div>
+
+</header>

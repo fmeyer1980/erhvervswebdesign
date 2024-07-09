@@ -1,0 +1,15 @@
+title: 'featured entries'
+fields:
+  -
+    handle: section_heading
+    field: entrie_boxes.section_heading
+  -
+    handle: entries
+    field:
+      type: entries
+      display: Entries
+  -
+    handle: list
+    field:
+      type: entries
+      display: List

@@ -1,0 +1,24 @@
+<div class="container-wrapper pt-[calc(var(--header-bottom-height)+var(--size-lg))] bg-dark text-light-glare" x-data="{ filterID: 0, filter: (id, allowed) => allowed.includes(id) }">
+
+
+
+<ul class="flex mb-gutter">
+    <li><button class="cursor-pointer" x-on:click.prevent="filterID = 0" >Alle</button></li>       
+    {{ taxonomy from="categories" }}
+        <li><button class="cursor-pointer" x-on:click.prevent="filterID = {{ count }}" >{{ title }}</button></li>       
+    {{ /taxonomy }}
+</ul>
+
+<div>
+    <ul class="grid grid-cols-3 gap-gutter">
+        {{ collection from="articles" }}
+        <li class="relative" x-show="filter(filterID, [ {{ categories }}{{ count }}, {{ /categories }}0 ])">
+            {{ partial:components/image :imagePath="featured_image" class="rounded-2xl" }}
+            <a class="link-parent" href="{{ url }}">
+                {{ title }}
+            </a>
+        </li>
+        {{ /collection }}
+    </ul>
+</div>
+</div>

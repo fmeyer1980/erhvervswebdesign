@@ -1,0 +1,9 @@
+<div class="-mt-[var(--video-padding)] bg-light">
+   
+    <div class="container-wrapper">
+        <div class="mage-overlay aspect-[3/2] md:aspect-[16/8] relative  overflow-hidden rounded-xl box custom-border group fade-in-size before:absolute before:inset-0 before:bg-dark-shade/30 hover:before:bg-dark-shade/70 before:z-10 before:transition-colors before:duration-[400ms] before:ease-[cubic-bezier(0,85,15,1)]">
+            {{ partial:components/picture :imagePath="video_image" class="absolute w-full h-full object-cover group-hover:scale-110 transition-transform duration-[400ms] ease-[cubic-bezier(0,85,15,1)]" }}
+            <button class="cursor-pointer absolute inset-0 grid place-content-center z-20" @click="popup = true, $nextTick(() => $refs.popupCloseButton.focus()), data.video = '{{ video }}'">{{ svg src="play" class=" text-light-glare group-hover:rotate-[120deg] transition-all group-hover:scale-110 duration-[400ms] ease-[cubic-bezier(0,85,15,1)] group-hover:text-primary" }}</button>
+        </div>
+    </div>
+</div>

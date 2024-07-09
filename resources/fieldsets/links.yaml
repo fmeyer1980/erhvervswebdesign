@@ -1,0 +1,121 @@
+title: Links
+fields:
+  -
+    handle: links
+    field:
+      max_sets: 2
+      type: replicator
+      display: Links
+      collapse: accordion
+      fullscreen: false
+      button_label: 'Add link'
+      sets:
+        '':
+          display: null
+          sets:
+            link:
+              display: Link
+              icon: link
+              fields:
+                -
+                  handle: url
+                  field:
+                    type: link
+                    display: Url
+                    width: 50
+                    if:
+                      link_type: 'equals normal'
+                -
+                  handle: section_link
+                  field:
+                    type: text
+                    display: 'Section link'
+                    width: 50
+                    if:
+                      link_type: 'equals id'
+                -
+                  handle: video_link
+                  field:
+                    max_files: 1
+                    container: assets
+                    type: assets
+                    display: 'Video link'
+                    width: 50
+                    validate:
+                      - 'mimes:mp4'
+                    if:
+                      link_type: 'equals video'
+                -
+                  handle: form_picker
+                  field:
+                    max_items: 1
+                    type: form
+                    display: 'Form picker'
+                    width: 50
+                    if:
+                      link_type: 'equals form'
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Text
+                    width: 25
+                -
+                  handle: icon
+                  field:
+                    store_as: svg_data
+                    type: iconify
+                    display: Icon
+                    width: 25
+                -
+                  handle: show_settings
+                  field:
+                    type: revealer
+                    display: 'Show settings'
+                -
+                  handle: link_style
+                  field:
+                    options:
+                      default: Default
+                      solid: Solid
+                      stroke: Stroke
+                    default: default
+                    type: select
+                    display: 'Link style'
+                    width: 25
+                    if:
+                      show_settings: 'equals true'
+                -
+                  handle: btn_color
+                  field: common_fields.color
+                  config:
+                    width: 25
+                    if:
+                      show_settings: 'equals true'
+                -
+                  handle: icon_position
+                  field:
+                    options:
+                      left: Left
+                      right: Right
+                    default: right
+                    type: button_group
+                    display: 'Icon position'
+                    width: 25
+                    if:
+                      show_settings: 'equals true'
+                      icon: '!== empty'
+                -
+                  handle: link_type
+                  field:
+                    options:
+                      normal: 'Normal link'
+                      form: 'Form link'
+                      id: 'Section link'
+                      video: 'Video link'
+                    default: normal
+                    type: select
+                    display: 'Link type'
+                    width: 25
+                    if:
+                      show_settings: 'equals true'

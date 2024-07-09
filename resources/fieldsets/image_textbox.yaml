@@ -1,0 +1,40 @@
+title: 'Image textbox'
+fields:
+  -
+    handle: text
+    field:
+      buttons:
+        - h2
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - title
+        - brand_color
+        - large_text
+        - font_light
+      toolbar_mode: floating
+      remove_empty_nodes: false
+      type: bard
+      display: Text
+  -
+    handle: links
+    field: links.links
+  -
+    handle: image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: Image
+  -
+    handle: flip_content
+    field:
+      type: toggle
+      display: 'Flip content'
+  -
+    handle: section_color
+    field: common_fields.section_color

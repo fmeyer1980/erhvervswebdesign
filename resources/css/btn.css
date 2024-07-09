@@ -1,0 +1,12 @@
+.btn{
+  @apply py-[1em] px-[1.8em] text-sm font-semibold inline-flex items-center rounded-[4px] leading-none gap-[.5em] justify-center transition-transform shadow-transparent hover:translate-x-2 hover:shadow-xl flex-grow xl:flex-grow-0 min-w-[fit-content];
+}
+
+
+.btn[data-type='solid-primary'] {
+  @apply bg-primary text-dark-shade;
+}
+
+.btn[data-type='stroke-light'] {
+  @apply ring-2 ring-inset ring-light-glare bg-black/10 backdrop-blur-sm ;
+}

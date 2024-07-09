@@ -1,0 +1,24 @@
+<div class="flow-space-900">
+    {{ house_list }}
+        <div class="border-t border-primary-shade/10 py-900 flex flex-wrap gap-900 {{ last ?= 'border-b' }}">
+            <div class="flow-y flow-space-200 basis-0 grow-9 min-w-[40%]">
+                <h3>{{ headline }}</h3>
+                <ul class="flex gap-[.2em] font-bold">
+                    {{ house_number }}
+                        <li class="!my-0">{{ value }} {{ last ? '' : '/' }} </li>
+                    {{ /house_number }}
+                </ul>
+                <div>
+                    {{ text }}
+                </div>
+            </div>
+            {{ if image }}
+                <div class="basis-[20rem] grow">
+                    {{ glide :src="image" width="800" }}
+                        <img src="{{ url }}" width="{{ width }}" height="{{ height }}" loading="lazy" class="mix-blend-multiply max-w-full">
+                    {{ /glide }}
+                </div>
+            {{ endif }}
+        </div>
+    {{ /house_list }}
+</div>

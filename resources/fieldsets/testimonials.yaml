@@ -1,0 +1,13 @@
+title: Testimonials
+fields:
+  -
+    handle: section_heading
+    field: entrie_boxes.section_heading
+  -
+    handle: list
+    field:
+      max_items: 6
+      collections:
+        - testimonials
+      type: entries
+      display: List

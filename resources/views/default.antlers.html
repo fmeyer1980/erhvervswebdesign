@@ -1,0 +1,4 @@
+{{ partial:page_sections/banner }}
+{{ page_sections }}
+    {{ partial src="page_sections/{type}" typeClass="{type | slugify}" }}
+{{ /page_sections }}

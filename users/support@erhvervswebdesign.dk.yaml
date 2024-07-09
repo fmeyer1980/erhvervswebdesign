@@ -1,0 +1,12 @@
+name: Admin
+super: true
+id: 06bb1112-0cf2-4882-aab0-78c45af5aa8c
+password_hash: $2y$12$ZQ.DkrqFAziFWo89VCnSx.bG9QtdlwFBbD3.nFeEPQTLTxfB5LFmC
+preferences:
+  theme: light
+  collections:
+    pages:
+      after_save: continue_editing
+  assets:
+    assets:
+      mode: grid

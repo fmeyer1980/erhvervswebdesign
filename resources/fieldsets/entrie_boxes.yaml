@@ -1,0 +1,158 @@
+title: 'Entrie boxes'
+fields:
+  -
+    handle: section_heading
+    field: common_fields.section_heading
+  -
+    handle: entrie_boxes
+    field:
+      collapse: accordion
+      type: replicator
+      display: 'Entrie boxes'
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            items:
+              display: Items
+              fields:
+                -
+                  handle: icon_type
+                  field:
+                    options:
+                      local: Local
+                      iconify: Iconify
+                    default: local
+                    type: button_group
+                    display: 'Icon type'
+                -
+                  handle: icon
+                  field:
+                    path: assets/icons
+                    path_helper: public_path
+                    type: iconamic
+                    display: Icon
+                    if:
+                      icon_type: 'equals local'
+                -
+                  handle: iconify
+                  field:
+                    store_as: svg_data
+                    type: iconify
+                    display: Iconify
+                    if:
+                      icon_type: 'equals iconify'
+                -
+                  handle: headline
+                  field:
+                    type: text
+                    display: Headline
+                    validate:
+                      - required
+                -
+                  handle: text
+                  field:
+                    type: textarea
+                    display: Text
+                -
+                  handle: entrie_type
+                  field:
+                    options:
+                      links: Links
+                      text: Text
+                    default: links
+                    type: button_group
+                    display: 'Entrie type'
+                    replicator_preview: false
+                -
+                  handle: entries_links
+                  field:
+                    type: grid
+                    display: 'Entries links'
+                    if:
+                      entrie_type: 'equals links'
+                    add_row: 'Add link'
+                    fields:
+                      -
+                        handle: url
+                        field:
+                          collections:
+                            - pages
+                          type: link
+                          display: Url
+                          listable: hidden
+                          instructions_position: above
+                          visibility: visible
+                          replicator_preview: true
+                          hide_display: false
+                      -
+                        handle: text
+                        field:
+                          input_type: text
+                          antlers: false
+                          type: text
+                          display: Text
+                          listable: hidden
+                          instructions_position: above
+                          visibility: visible
+                          replicator_preview: true
+                          hide_display: false
+                -
+                  handle: entries_text
+                  field:
+                    type: grid
+                    display: 'Entries text'
+                    if:
+                      entrie_type: 'equals text'
+                    add_row: 'Add text'
+                    fields:
+                      -
+                        handle: text
+                        field:
+                          buttons:
+                            - bold
+                            - italic
+                            - removeformat
+                            - anchor
+                            - brand_color
+                          smart_typography: false
+                          save_html: true
+                          inline: false
+                          toolbar_mode: floating
+                          reading_time: false
+                          word_count: false
+                          fullscreen: true
+                          allow_source: true
+                          enable_input_rules: true
+                          enable_paste_rules: true
+                          remove_empty_nodes: trim
+                          antlers: false
+                          link_noopener: false
+                          link_noreferrer: false
+                          target_blank: false
+                          always_show_set_button: false
+                          collapse: false
+                          previews: true
+                          type: bard
+                          display: Text
+                          listable: hidden
+                          instructions_position: above
+                          visibility: visible
+                          replicator_preview: true
+                          hide_display: false
+                -
+                  handle: width
+                  field:
+                    options:
+                      - 33
+                      - 50
+                      - 66
+                      - 100
+                    default: '50'
+                    type: width
+                    display: Width
+                -
+                  handle: links
+                  field: links.links
+                  config:
+                    max_sets: 2

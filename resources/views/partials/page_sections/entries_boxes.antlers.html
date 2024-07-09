@@ -1,0 +1,37 @@
+<section class="container-wrapper flex flex-col py-lg bg-light">
+    {{ partial:components/section_heading class="text-center flex flex-col items-center prose-p:max-w-[75ch]" }}
+
+    <div class="grid grid-cols-12 gap-gutter ">
+        {{ entrie_boxes }}
+            <div class="bg-light-glare p-700 rounded-2xl shadow-custom_light @container flow-y flow-space-600 col-span-12 {{ first == true ? 'fade-in-right' : 'fade-in-left' }} {{ width == '33' ?= 'md:col-span-4' }}{{ width == '50' ?= 'md:col-span-6' }}{{ width == '66' ?= 'md:col-span-8' }}">
+                <div class="flex gap-gutter flex-col @md:flex-row">
+                    {{ if icon and icon_type == "local" }}
+                        {{ svg src="assets/icons/{{ icon }}" class="h-850 w-max shrink-0" }}
+                    {{ else }}
+                        {{ iconify:iconify class="h-800 w-max shrink-0" }}
+                    {{ endif }}
+                    <div class=" space-y-100">
+                        <h2 class="text-400 relative after:absolute after:left-0 after:-bottom-2 after:w-700 after:h-[2px] after:bg-primary">{{ headline }}</h2>
+                        <p class="text-sm opacity-70 text-balance">{{ text }}</p>
+                    </div>
+                </div>
+                <ul class="*:py-[.8em] divide-y divide-dark-shade/5 text-sm">
+                    {{ if entrie_type == "links" }}
+                    {{ entries_links }}
+                        <li class="{{ list_class }}"><a class="inline-flex items-center gap-[.9em] font-medium hover:translate-x-2 transition-transform" href="{{ url }}"><span>{{ text }}</span>{{ svg src="arrow-two" class="h-[.7em] w-auto" aria-hidden="true" }}</a></li>
+                    {{ /entries_links }}
+                    {{ elseif entrie_type == "text" }}
+                    {{ entries_text }}
+                        <li class="text-pretty">{{ text }}</li>
+                    {{ /entries_text }}
+                    {{ endif }}
+                </ul>
+                <div class="flex gap-2">
+                    {{ links }}
+                        {{ partial:components/btn }}
+                    {{ /links }}
+                </div>
+            </div>
+        {{ /entrie_boxes }}
+    </div>
+</section>

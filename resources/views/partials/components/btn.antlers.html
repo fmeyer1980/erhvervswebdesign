@@ -1,0 +1,35 @@
+{{ as = switch(
+    (link_type == 'video' || link_type == 'form') => 'button',
+    () => 'a'
+)}}
+{{ linkUrl = switch(
+    (link_type == 'id') => '#' + section_link,
+    (link_type == 'form') => "",
+    (link_type == 'video') => "",
+    () => url
+)}}
+{{ xData  = switch(
+    (form_picker == true) => 'popup_form = true, $nextTick(() => $refs.popupCloseButton.focus())',
+    (link_type == 'video') => 'popup = true, $nextTick(() => $refs.popupCloseButton.focus()), data.video=' + "'" + video_link + "'",
+    () => url
+)}}
+{{ style = switch(
+    (link_style == 'default' and btn_color == 'primary') => "text-light-glare underline underline-offset-4 !p-0 [&_i]:bg-primary [&_svg]:translate-x-[.05em] gap-[1em]",
+    (link_style == 'solid' and btn_color == 'primary') => "bg-primary text-light-glare outline outline-1 outline-offset-2 outline-primary",
+    (link_style == 'solid' and btn_color == 'light') => "bg-light-glare text-dark-shade outline outline-1 outline-offset-2 outline-light-glare",
+    (link_style == 'stroke' and btn_color == 'light') => "outline outline-1 outline-offset-2 outline-light-glare text-light-glare",
+    (link_style == 'stroke' and btn_color == 'dark') => "outline outline-1 outline-offset-2 outline-dark-shade text-dark-shade",
+)}}
+
+
+<{{ as or 'a' }} 
+    class="btn light-glare {{ icon_position == 'left' ?= 'flex-row-reverse' }} {{ style }} {{ class }}"
+    {{ if linkUrl }}href="{{ linkUrl or '/' }}"{{ /if }}
+    {{ if xData == form_picker or xData == link_type }} x-on:click="{{ xData }}" {{ /if }}>
+    <span>{{ text or 'Læs mere' }}</span>
+    {{ if icon }}
+        {{ iconify:icon class="h-[1em] w-max" }}
+    {{ elseif custom_icon }}
+        <i class="size-[1.8em] rounded-full flex items-center justify-center outline outline-1 outline-offset-2 outline-light-glare/20">{{ svg :src="custom_icon" class="h-[.8em] w-max" }}</i>
+    {{ /if }}
+</{{ as or 'a' }}>

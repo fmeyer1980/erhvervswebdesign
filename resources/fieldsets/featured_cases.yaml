@@ -1,0 +1,32 @@
+title: 'Featured cases'
+fields:
+  -
+    handle: section_heading
+    field: common_fields.section_heading
+  -
+    handle: links
+    field: links.links
+  -
+    handle: cases_left
+    field:
+      max_items: 3
+      collections:
+        - cases
+      type: entries
+      display: 'Cases left'
+  -
+    handle: cases_center
+    field:
+      max_items: 3
+      collections:
+        - cases
+      type: entries
+      display: 'Cases center'
+  -
+    handle: cases_right
+    field:
+      max_items: 3
+      collections:
+        - cases
+      type: entries
+      display: 'Cases right'

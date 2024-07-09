@@ -1,0 +1,34 @@
+title: Testimonial
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: hidden
+              required: false
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+          -
+            handle: position
+            field:
+              type: text
+              display: Position
+          -
+            handle: text
+            field:
+              type: textarea
+              display: Text
+          -
+            handle: stars
+            field:
+              min: 1
+              max: 5
+              type: range
+              display: Stars

@@ -1,0 +1,39 @@
+<div class="flow-y {{ class }}">
+    <div class="flex flex-wrap items-end gap-gutter justify-between">
+        <div class="flex items-center gap-200 text-400">
+            {{ svg src="question.svg" class="h-[1.9em]" }}
+            <div class="leading-tight">
+                <b class="">Hvilken type løsning leder du efter?</b>
+                <p class="opacity-70 text-sm">Vælg herunder...</p>
+            </div>
+        </div>
+        <div class="bg-light-glare/70 backdrop-blur-sm text-dark-shade py-[.8em] px-[1.5em] rounded-xl leading-none font-semibold text-xs shadow-custom">Få et prisestimat på 2 minutter!</div>
+    </div>
+    <form action="" class="price_calculator grid grid-cols-1 md:grid-cols-3 gap-x-gutter gap-y-400 md:gap-y-gutter flow-space-700">
+        <label for="hjemmeside" class="relative cursor-pointer bg-primary/90 md:aspect-video flex gap-200 md:flex-col items-center md:justify-center rounded-xl py-400 px-gutter md:py-800 backdrop-blur-sm border border-white/30 ring-1 ring-black/30 shadow-custom">
+            {{ svg src="hjemmeside" class="h-650 md:h-800" }}
+            <p class="font-heading text-400 font-medium md:font-bold">Hjemmeside</p>
+            <input id="hjemmeside" type="radio" class=" opacity-0 absolute inset-0">
+        </label>
+        <label for="hjemmeside" class="relative cursor-pointer bg-primary/90 md:aspect-video flex gap-200 md:flex-col items-center md:justify-center rounded-xl py-400 px-gutter md:py-800 backdrop-blur-sm border border-white/30 ring-1 ring-black/30 shadow-custom">
+            {{ svg src="webshop" class="h-650 md:h-800" }}
+            <p class="font-heading text-400 font-medium md:font-bold">Webshops</p>
+            <input id="hjemmeside" type="radio" class=" opacity-0 absolute inset-0">
+        </label>
+        <label for="hjemmeside" class="relative cursor-pointer bg-primary/90 md:aspect-video flex gap-200 md:flex-col items-center md:justify-center rounded-xl py-400 px-gutter md:py-800 backdrop-blur-sm border border-white/30 ring-1 ring-black/30 shadow-custom">
+            {{ svg src="marketing" class="h-650 md:h-800" }}
+            <p class="font-heading text-400 font-medium md:font-bold">Marketing</p>
+            <input id="hjemmeside" type="radio" class=" opacity-0 absolute inset-0">
+        </label>
+        <div class="price_calculator__numbers flex flex-wrap gap-[.6em] text-200 font-bold *:size-[2.7em] *:border *:border-white *:rounded-full *:opacity-30 md:col-span-3">
+            <button class="first bg-light-glare text-dark-shade !opacity-100">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+        </div>
+    </form>
+</div>

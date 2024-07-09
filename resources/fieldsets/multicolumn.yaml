@@ -1,0 +1,74 @@
+title: Multicolumn
+fields:
+  -
+    handle: multicolumn
+    field:
+      collapse: accordion
+      previews: true
+      fullscreen: true
+      sets:
+        item:
+          display: Item
+          instructions: null
+          icon: null
+          sets:
+            column:
+              display: Column
+              instructions: null
+              icon: addon-boxes-stack
+              fields:
+                -
+                  handle: headline
+                  field:
+                    input_type: text
+                    antlers: false
+                    type: text
+                    display: Headline
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: text
+                  field: common_fields.simple_text
+                  config:
+                    display: Text
+                -
+                  handle: link
+                  field: links.links
+                  config:
+                    display: Link
+                    max_rows: 1
+                -
+                  handle: show_settings
+                  field:
+                    mode: button
+                    type: revealer
+                    display: 'Show settings'
+                    icon: revealer
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: show_icon
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Show icon'
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    if:
+                      show_settings: 'equals true'
+      type: replicator
+      display: Multicolumn
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      max_sets: 4

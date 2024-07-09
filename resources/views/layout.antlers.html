@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="view-transition" content="same-origin" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/css/site.css" }}
+    </head>
+    <body class="font-base text-dark-shade bg-light text-300" x-data="{ popup: false, data: {video: ''}, shown: false }"  
+    x-init="$watch('popup', (value) => {
+        if (value) {
+            $refs.video.play()
+        } else {
+            $refs.video.pause()
+        }
+    })">
+        {{ partial:site_head }}
+        <main class="">
+            {{ template_content }}
+        </main>
+        {{ partial:components/popup_video }}
+        {{ vite src="resources/js/site.js" }}
+        <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+        <script>
+            function goPrecious() {
+                document.getElementById('ppp').scrollBy({ 
+                  left: -350,
+                  behavior: 'smooth' 
+                });
+              }
+              
+            function goNext() {
+                document.getElementById('ppp').scrollBy({ 
+                  left: 350,
+                  behavior: 'smooth' 
+                });
+            }
+
+            function setBoxHeight(){
+                const box = document.querySelector('.box');
+                const root = document.querySelector(':root');
+                root.style.setProperty('--boxHeight', `${box.clientHeight}px`)
+            }
+            window.addEventListener('resize', setBoxHeight);
+            window.addEventListener('DOMContentLoaded', setBoxHeight);
+        </script>
+        {{ if live_preview }}
+            {{ vite src="resources/js/livepreview.js" }}
+            <script>
+                window.addEventListener('message', async (event) => {
+                    if (event.data.name === 'statamic.preview.updated') {
+                        const text = await fetch(event.data.url).then((res) => res.text());
+                        const updated = new DOMParser().parseFromString(text, 'text/html');
+                        Alpine.morph(document.body, updated.body);
+                    }
+                });
+            </script>
+        {{ /if }}
+    </body>
+</html>

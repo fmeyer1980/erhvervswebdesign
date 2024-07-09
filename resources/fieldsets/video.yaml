@@ -1,0 +1,64 @@
+title: Video
+fields:
+  -
+    handle: video_image
+    field:
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      max_files: 1
+      display: 'Video image'
+      type: assets
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      validate:
+        - required
+      visibility: visible
+      always_save: false
+  -
+    handle: media_type
+    field:
+      options:
+        upload: 'Upload video'
+        youtube: Youtube
+      inline: true
+      cast_booleans: false
+      default: upload
+      display: 'Media type'
+      type: radio
+      icon: radio
+      listable: hidden
+      instructions_position: above
+  -
+    handle: video
+    field:
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      max_files: 1
+      display: Video
+      type: assets
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      if:
+        media_type: 'equals upload'
+      visibility: visible
+      always_save: false
+      folder: video
+  -
+    handle: youtube_link
+    field:
+      display: 'Youtube link'
+      type: video
+      icon: video
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      if:
+        media_type: 'equals youtube'

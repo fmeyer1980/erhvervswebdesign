@@ -1,0 +1,115 @@
+title: 'Common fields'
+fields:
+  -
+    handle: color
+    field:
+      options:
+        dark: Dark
+        light: Light
+        primary: Primary
+      display: Color
+      type: select
+      default: dark
+  -
+    handle: simple_text
+    field:
+      buttons:
+        - bold
+        - italic
+        - removeformat
+        - anchor
+        - title
+        - brand_color
+        - large_text
+      toolbar_mode: floating
+      remove_empty_nodes: false
+      type: bard
+      display: 'Simple text'
+  -
+    handle: text
+    field:
+      buttons:
+        - h1
+        - h2
+        - h3
+        - h4
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - alignleft
+        - aligncenter
+        - alignright
+        - title
+        - brand_color
+        - large_text
+        - font_light
+        - highlight_box
+        - bts_attributes
+      remove_empty_nodes: false
+      type: bard
+      display: Text
+      bts_styles_button: icon
+      sets:
+        links:
+          display: Links
+          icon: link
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: links
+                  field: links.links
+  -
+    handle: section_heading
+    field:
+      buttons:
+        - h2
+        - bold
+        - italic
+        - removeformat
+        - title
+        - brand_color
+        - large_text
+        - font_light
+      remove_empty_nodes: false
+      type: bard
+      display: 'Section heading'
+  -
+    handle: section_space
+    field:
+      options:
+        flow-space-none: 'No space'
+        flow-space-100: XS
+        flow-space-300: Small
+        flow-space-600: Medium
+        flow-space-900: Large
+        flow-space-xl: XL
+      default: flow-space-xl
+      type: select
+      display: 'Section space'
+  -
+    handle: alignment
+    field:
+      options:
+        justify-start: Left
+        'justify-center text-center': Center
+        'justify-end text-right': Right
+      default: justify-start
+      type: button_group
+      display: Alignment
+  -
+    handle: section_color
+    field:
+      options:
+        light-glare: White
+        light: 'Light gray'
+        dark-glare: 'Dark gray'
+        dark: Black
+        primary: Primary
+      type: select
+      display: 'Section color'

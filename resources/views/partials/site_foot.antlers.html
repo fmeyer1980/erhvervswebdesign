@@ -1,0 +1,32 @@
+<footer class="text-center md:text-left">
+    <div class="container-wrapper py-lg {{ page_sections }} {{ page_sections | last }} {{ type == "cta" || type == "reusable_sections" ?= 'md:mx-xxl' }} {{ /page_sections | last }} {{ /page_sections }} flex flex-col md:flex-row justify-between gap-900 [&_li]:pb-1 [&_li]:opacity-80">
+        <div>
+            <p class="h5 mb-200">RS Bolig</p>
+            <ul>
+                <li>{{ site_settings:address }},</li>
+                <li>{{ site_settings:zip }}</li>
+            </ul>
+        </div>
+        <div>
+            <p class="h5 mb-200">Åbningstider</p>
+            <ul>
+                {{ site_settings:opening_hours }}
+                <li>{{ value }}</li>
+                {{ /site_settings:opening_hours }}
+            </ul>
+        </div>
+        <div>
+            <p class="h5 mb-200">Kontakt os</p>
+            <ul class="[&_a]:underline [&_a]:underline-offset-2 [&_a]:transition-colors">
+                <li><a class="hover:opacity-100 hover:text-primary-glare " href="tel:{{ site_settings:phone }}">{{ site_settings:phone }}</a></li>
+                <li><a class="hover:opacity-100 hover:text-primary-glare " href="email:{{ site_settings:email }}">{{ site_settings:email }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-primary-shade/10 ">
+        <div class=" container-wrapper py-400 flex flex-col md:flex-row items-center justify-center md:justify-between gap-gutter mx-xl">
+            <p class="text-xs opacity-70">Copyright © <span id="copyright"></span> {{ site_settings:site_name }} All rights reserved.</p>
+            {{ partial:components/socialmedia color="dark" }}
+        </div>
+    </div>
+</footer>

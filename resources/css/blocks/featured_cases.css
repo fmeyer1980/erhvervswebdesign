@@ -1,0 +1,31 @@
+.featured_cases__list{
+    @apply 
+    relative
+    h-[70vh]
+    overflow-y-clip
+}
+
+.featured_cases__list::before, .featured_cases__list::after{
+    content: "";
+    @apply 
+    absolute
+    left-0
+    z-10
+    w-full
+    h-xl
+    from-dark
+    to-dark-shade/0
+
+}
+
+.featured_cases__list::before{
+    @apply 
+    top-0
+    bg-gradient-to-b
+}
+
+.featured_cases__list::after{
+    @apply 
+    bottom-0
+    bg-gradient-to-t
+}

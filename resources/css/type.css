@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/public/fonts/Poppins-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/public/fonts/Inter-wght.woff2") format("woff2-variations");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5{
+  @apply font-heading font-bold leading-tight;
+}
+
+h1,
+.h1 {
+  @apply text-800;
+}
+
+h2,
+.h2 {
+  @apply text-700;
+}
+
+h3,
+.h3 {
+  @apply text-700;
+}
+
+h4,
+.h4 {
+  @apply text-600;
+}
+
+h5,
+.h5 {
+  @apply text-400;
+}
+
+h6,
+.h6 {
+  @apply text-300;
+}

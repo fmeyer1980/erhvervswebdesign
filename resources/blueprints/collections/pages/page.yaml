@@ -1,0 +1,52 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Banner
+        instructions: banner
+        fields:
+          -
+            import: banner
+            prefix: banner_
+      -
+        display: 'Page sections'
+        fields:
+          -
+            import: page_sections
+  seo:
+    display: Seo
+    sections:
+      -
+        fields:
+          -
+            import: meta
+            prefix: meta_
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

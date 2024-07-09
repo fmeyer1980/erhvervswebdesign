@@ -1,0 +1,21 @@
+{{ color = switch(
+    (section_color == 'light-glare') => "bg-light-glare [&_p:not(.title)]:text-dark-shade/70",
+    (section_color == 'dark') => "bg-dark prose-headings:text-primary text-light-glare [&_p:not(.title)]:text-light-glare/70",
+    (section_color == 'primary') => "bg-primary prose-headings:text-light-glare text-light-glare [&_p:not(.title)]:text-light-glare/70",
+)}}
+
+<section class="container-wrapper py-lg grid grid-cols-1 md:grid-cols-2 gap-gutter items-center {{ color }}" aria-label="{{ text | raw | bard_items | where:type:heading | first | bard_text }}">
+    <div class="h-full rounded-2xl grow shrink overflow-hidden custom-border relative {{ flip_content ? 'md:order-2 fade-in-size' : 'fade-in-size' }}">
+        {{ partial:partials/components/image :imagePath="image" h="900" w="800" class="absolute inset-0 w-full h-full object-cover " }}
+    </div>
+    <div class="prose-h2:!text-700 prose-h2:max-w-[25ch] prose-p:max-w-[50ch] py-lg page-content flow-y flow-space-1em text-pretty flex flex-col items-center text-center md:items-start md:text-left {{ flip_content ? 'fade-in-right md:pr-700' : 'fade-in-left md:pl-700' }}">
+        {{ text }}
+        {{ if links }}
+            <div class="flex gap-400 flex-wrap flow-space-700">
+                {{ links }}
+                    {{ partial:components/btn :linkUrl="url" :linkText="text" }}
+                {{ /links }}
+            </div>
+        {{ endif }}
+    </div>
+</section>

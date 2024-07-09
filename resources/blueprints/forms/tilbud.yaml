@@ -1,0 +1,30 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              placeholder: 'Indtast navn:'
+              type: text
+              display: Navn
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              input_type: email
+              placeholder: 'Indtast din email:'
+              type: text
+              display: Email
+              validate:
+                - required
+          -
+            handle: phone
+            field:
+              input_type: tel
+              placeholder: 'Indtast dit telefonnummer:'
+              type: text
+              display: Telefon

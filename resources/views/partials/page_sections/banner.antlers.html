@@ -1,0 +1,25 @@
+{{ banner_text_headline = banner_text | raw | bard_items | where:type:heading | first | bard_text }}
+
+<section class="banner relative clip-path" aria-label="{{ banner_text_headline ? banner_text_headline : title }}">
+    <div class="banner__content container-wrapper relative text-light-glare z-10 min-h-[clamp(25rem,calc(20vw+20vh),45rem)] pt-[calc(var(--size-xl)+var(--header-bottom-height))] pb-xl ">
+        {{ if banner_text }}
+            {{ banner_text }}
+        {{ else }}
+            <h1>{{ title }}</h1>
+        {{ endif }}
+        <div class="flex gap-100 flex-wrap flow-space-700">
+            {{ banner_links }}
+                {{ btn_style = switch(
+                    (first == true) => "solid-primary",
+                    () => "stroke-light"
+                )}}
+                {{ partial:components/btn :linkType="btn_style" :linkUrl="url" :linkText="text" }}
+            {{ /banner_links }}
+        </div>
+    </div>
+    <div class="banner__image absolute inset-0 after:absolute after:inset-0 after:bg-gradient-to-r after:from-dark-shade/90 after:to-dark-shade/30 before:absolute before:inset-0 before:bg-gradient-to-b before:from-dark-shade before:to-dark-shade/0 before:to-40%">
+        {{ image_id = 'view-transition-name: ' + id }}
+        {{ partial:components/picture ratio="9" :imagePath="banner_image" :style_tag="image_id"  }}
+    </div>
+</section>
+

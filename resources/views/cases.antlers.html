@@ -1,0 +1,14 @@
+<div>{{ title }}</div>
+
+
+    {{ collection in="cases" }}
+    <ul class="flex">
+        {{ categories }}
+            <li>{{ value }}</li>
+            
+        {{ /categories }}
+    </ul>
+
+    {{ /collection }}
+
+
